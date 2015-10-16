@@ -27,10 +27,24 @@
     <div ui-view></div>
 
     <!-- build:js(src) scripts/vendor.js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/svg-injector/svg-injector.js"></script>
+    <script src="../bower_components/praece-ng-auth/dist/praece-ng-auth.js"></script>
+    <script src="../bower_components/ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
+    <script src="../bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
     <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js(src) scripts/auth.js -->
+    <script src="../bower_components/auth0.js/build/auth0.js"></script>
+    <script src="../bower_components/auth0-angular/build/auth0-angular.js"></script>
+    <script src="../bower_components/auth0-lock/build/auth0-lock.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->
