@@ -10,7 +10,7 @@
     <tbody>
       <tr ng-repeat="envelope in envelopesCtrl.envelopes">
         <td>
-          <a ui-sref="envelope({envelopeId: envelope.id})" pr-stop-propagation>{{::envelope.name}}</a>
+          <a ui-sref="envelope({id: envelope.id})" pr-stop-propagation>{{::envelope.name}}</a>
         </td>
         <td>
           {{::envelope.goal || 0 | currency}}

@@ -1,0 +1,41 @@
+<header>
+  <h1 ng-click="envelopeCtrl.editingName = true" ng-if="!envelopeCtrl.editingName">{{::envelopeCtrl.envelope.name}}</h1>
+  <input ng-if="envelopeCtrl.editingName" type="text" ng-model="envelopeCtrl.envelope.name">
+  <button class="page-header-button add-item-button" type="button" ng-click="envelopeCtrl.saveEnvelope()" ng-if="envelopeCtrl.editingName">Save</button>
+</header>
+<main>
+  <table class="table clickable-table">
+    <thead>
+    	<th>Description</th>
+      <th>Amount</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="transaction in envelopeCtrl.envelope.transactions">
+        <td>
+          {{::transaction.description}}
+        </td>
+        <td>
+          {{::transaction.amount || 0 | currency}}
+        </td>
+      </tr>
+      <tr ng-click="envelopeCtrl.addTransaction()" ng-if="!envelopeCtrl.addingTransaction">
+        <td colspan="2">
+          Add a Transaction
+        </td>
+      </tr>
+      <tr ng-if="envelopeCtrl.addingTransaction">
+        <td>
+          <input type="text" ng-model="envelopeCtrl.newTransaction.description">
+        </td>
+        <td>
+          <input type="text" ng-model="envelopeCtrl.newTransaction.amount">
+        </td>
+      </tr>
+      <tr>
+      	<td colspan="2">
+      		<button class="page-header-button add-item-button" type="button" ng-click="envelopeCtrl.saveTransaction()" ng-if="envelopeCtrl.addingTransaction">Save</button>
+      	</td>
+      </tr>
+    </tbody>
+  </table>
+</main>
