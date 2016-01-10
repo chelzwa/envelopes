@@ -1,8 +1,9 @@
+<a ui-sref="envelopes">Back to Envelopes</a>
 <header>
-  <h1 ng-click="envelopeCtrl.editingName = true" ng-if="!envelopeCtrl.editingName">{{::envelopeCtrl.envelope.name}}</h1>
-  <input ng-if="envelopeCtrl.editingName" type="text" ng-model="envelopeCtrl.envelope.name">
-  <button class="add-item-button" type="button" ng-click="envelopeCtrl.saveEnvelope()" ng-if="envelopeCtrl.editingName">Save</button>
-  <button class="cancel-button" type="button" ng-click="envelopeCtrl.editingName = false" ng-if="envelopeCtrl.editingName"><span class="glyphicon glyphicon-remove"></span></button>
+  <h1 ng-click="envelopeCtrl.envelope.editing = true" ng-if="!envelopeCtrl.envelope.editing">{{::envelopeCtrl.envelope.name}}</h1>
+  <input ng-if="envelopeCtrl.envelope.editing" type="text" ng-model="envelopeCtrl.envelope.name">
+  <button class="add-item-button" type="button" ng-click="envelopeCtrl.updateEnvelope()" ng-if="envelopeCtrl.envelope.editing">Save</button>
+  <button class="cancel-button" type="button" ng-click="envelopeCtrl.envelope.editing = false" ng-if="envelopeCtrl.envelope.editing"><span class="glyphicon glyphicon-remove"></span></button>
 </header>
 <main>
   <table class="table clickable-table">
