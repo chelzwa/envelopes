@@ -31,5 +31,6 @@
       </tr>
     </tbody>
   </table>
-  <button class="page-header-button add-item-button" type="button" ng-click="envelopesCtrl.saveEnvelope()" ng-if="envelopesCtrl.addingEnvelope">Save</button>
+  <button class="add-item-button" type="button" ng-click="envelopesCtrl.saveEnvelope()" ng-if="envelopesCtrl.addingEnvelope">Save</button>
+  <button class="cancel-button" type="button" ng-click="envelopesCtrl.addingEnvelope = false" ng-if="envelopesCtrl.addingEnvelope"><span class="glyphicon glyphicon-remove"></span></button>
 </main>

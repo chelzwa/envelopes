@@ -16,7 +16,10 @@ function (EnvelopeSrvc) {
   };
 
   ctrl.addEnvelope = function() {
-    ctrl.newEnvelope = EnvelopeSrvc.data.createInstance();
+    if (!ctrl.newEnvelope) {
+      ctrl.newEnvelope = EnvelopeSrvc.data.createInstance();
+    }
+    
     ctrl.addingEnvelope = true;
   };
 

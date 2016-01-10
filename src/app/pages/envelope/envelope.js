@@ -8,7 +8,7 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
     var promises = {
       envelope: EnvelopeSrvc.data.find($stateParams.id),
       transactions: TransactionSrvc.data.findAll({where: {envelope: $stateParams.id}})
-    }
+    };
 
     $q.all(promises)
       .then(function(response) {
@@ -22,8 +22,11 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
   };
 
   ctrl.addTransaction = function() {
-    ctrl.newTransaction = TransactionSrvc.data.createInstance();
-    ctrl.newTransaction.envelope = $stateParams.id;
+    if (!ctrl.newTransaction) {
+      ctrl.newTransaction = TransactionSrvc.data.createInstance();
+      ctrl.newTransaction.envelope = $stateParams.id;
+    }
+    
     ctrl.addingTransaction = true;
   };
 
