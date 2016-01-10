@@ -43,7 +43,7 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
   };
 
   ctrl.saveEnvelope = function() {
-    EnvelopeSrvc.data.update(ctrl.envelope)
+    EnvelopeSrvc.data.update(ctrl.envelope.id, {name: ctrl.envelope.name})
       .then(function(envelope) {
         ctrl.envelope = _.merge(envelope, ctrl.envelope);
 
