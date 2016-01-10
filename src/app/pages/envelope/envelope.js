@@ -7,7 +7,7 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
   var initData = function() {
     var promises = {
       envelope: EnvelopeSrvc.data.find($stateParams.id),
-      transactions: TransactionSrvc.data.findAll({where: {envelope: $stateParams.id}})
+      transactions: TransactionSrvc.data.findAll({where: {envelope: $stateParams.id}, sort: 'createdAt'})
     };
 
     $q.all(promises)
@@ -25,6 +25,7 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
     if (!ctrl.newTransaction) {
       ctrl.newTransaction = TransactionSrvc.data.createInstance();
       ctrl.newTransaction.envelope = $stateParams.id;
+      ctrl.newTransaction.amount = 0;
     }
     
     ctrl.addingTransaction = true;
@@ -34,7 +35,20 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
     TransactionSrvc.data.create(ctrl.newTransaction)
       .then(function(transaction) {
         ctrl.envelope.transactions.push(transaction);
+        
+        delete ctrl.newTransaction;
         ctrl.addTransaction();
+      })
+      .catch(function(err) {
+        //TODO: Real alert
+        console.log(err);
+      });
+  };
+
+  ctrl.updateTransaction = function(transaction) {
+    TransactionSrvc.data.update(transaction.id, _.pick(transaction, ['description', 'amount']))
+      .then(function() {
+        transaction.editing = false;
       })
       .catch(function(err) {
         //TODO: Real alert
