@@ -27,6 +27,7 @@ function (EnvelopeSrvc) {
     EnvelopeSrvc.data.create(ctrl.newEnvelope)
       .then(function(envelope) {
         ctrl.envelopes.push(envelope);
+        delete ctrl.newEnvelope;
         ctrl.addEnvelope();
       })
       .catch(function(err) {

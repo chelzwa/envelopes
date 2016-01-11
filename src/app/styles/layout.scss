@@ -1,0 +1,34 @@
+#content {
+  padding: 20px;
+}
+
+.envelope {
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+  height: 100px;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #95E1D3;
+  position: relative;
+
+  .name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .goal {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+  }
+
+  .current-amount {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+}

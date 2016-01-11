@@ -56,12 +56,13 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
       });
   };
 
-  ctrl.saveEnvelope = function() {
+  ctrl.updateEnvelope = function() {
+    console.log('called');
     EnvelopeSrvc.data.update(ctrl.envelope.id, {name: ctrl.envelope.name})
       .then(function(envelope) {
         ctrl.envelope = _.merge(envelope, ctrl.envelope);
 
-        ctrl.editingName = false;
+        ctrl.envelope.editing = false;
       })
       .catch(function(err) {
         //TODO: Real alert

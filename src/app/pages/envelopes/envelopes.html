@@ -2,35 +2,19 @@
   <h1>Envelopes</h1>
 </header>
 <main>
-  <table class="table clickable-table">
-    <thead>
-      <th>Name</th>
-      <th>Goal</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="envelope in envelopesCtrl.envelopes">
-        <td>
-          <a ui-sref="envelope({id: envelope.id})" pr-stop-propagation>{{::envelope.name}}</a>
-        </td>
-        <td>
-          {{::envelope.goal || 0 | currency}}
-        </td>
-      </tr>
-      <tr ng-click="envelopesCtrl.addEnvelope()" ng-if="!envelopesCtrl.addingEnvelope">
-        <td colspan="2">
-          Add an Envelope
-        </td>
-      </tr>
-      <tr ng-if="envelopesCtrl.addingEnvelope">
-        <td>
-          <input type="text" ng-model="envelopesCtrl.newEnvelope.name">
-        </td>
-        <td>
-          <input type="text" ng-model="envelopesCtrl.newEnvelope.goal">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button class="add-item-button" type="button" ng-click="envelopesCtrl.saveEnvelope()" ng-if="envelopesCtrl.addingEnvelope">Save</button>
-  <button class="cancel-button" type="button" ng-click="envelopesCtrl.addingEnvelope = false" ng-if="envelopesCtrl.addingEnvelope"><span class="glyphicon glyphicon-remove"></span></button>
+    
+  <div ng-repeat="envelope in envelopesCtrl.envelopes" class="envelope" ui-sref="envelope({id: envelope.id})">
+    <span class="name">{{::envelope.name}}</span>
+    <span class="goal">{{::envelope.goal || 0 | currency}}</span>
+    <span class="current-amount">{{::envelope.currentAmount || 0 | currency}}</span>
+  </div>
+      
+  <span class="envelope" ng-click="envelopesCtrl.addEnvelope()" ng-if="!envelopesCtrl.addingEnvelope">
+    Add an Envelope
+  </span>
+  <form ng-if="envelopesCtrl.addingEnvelope" novalidate ng-submit="envelopesCtrl.saveEnvelope()" class="envelope">
+    <input type="text" ng-model="envelopesCtrl.newEnvelope.name">
+    <button class="add-item-button" ng-if="envelopesCtrl.addingEnvelope">Save</button>
+    <button class="cancel-button" type="button" ng-click="envelopesCtrl.addingEnvelope = false" ng-if="envelopesCtrl.addingEnvelope"><span class="glyphicon glyphicon-remove"></span></button>
+  </form>
 </main>
