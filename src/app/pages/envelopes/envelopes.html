@@ -5,8 +5,7 @@
     
   <div ng-repeat="envelope in envelopesCtrl.envelopes" class="envelope" ui-sref="envelope({id: envelope.id})">
     <span class="name">{{::envelope.name}}</span>
-    <span class="goal">{{::envelope.goal || 0 | currency}}</span>
-    <span class="current-amount">{{::envelope.currentAmount || 0 | currency}}</span>
+    <span class="details">{{::envelope.goal || 0 | currency}} / {{::envelope.currentAmount || 0 | currency}}</span>
     <span class="glyphicon glyphicon-pencil" ng-click="envelopesCtrl.envelope.editing = true" pr-stop-propagation></span>
   </div>
       

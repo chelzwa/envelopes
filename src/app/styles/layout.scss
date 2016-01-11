@@ -7,7 +7,7 @@
   vertical-align: top;
   width: 150px;
   height: 100px;
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   margin: 10px;
   cursor: pointer;
@@ -21,16 +21,10 @@
     line-height: 0;
   }
 
-  .goal {
+  .details {
     position: absolute;
-    bottom: 5px;
-    left: 5px;
-  }
-
-  .current-amount {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: 10px;
+    left: 10px;
   }
 
   .glyphicon-pencil {
@@ -64,13 +58,16 @@
 
 .add-envelope-form {
   @extend .envelope;
-  
+  padding: 5px;
+
   input {
     width: 140px;
     border-radius: 3px;
     border: none;
     background-color: #C7EFE7;
     margin-bottom: 5px;
+    padding: 5px;
+    font-size: 14px;
   }
 }
 
