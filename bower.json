@@ -14,7 +14,8 @@
     "praece-ng-auth": "git@github.com:praece/ng-auth.git#master",
     "svg-injector": "~1.1.3",
     "lodash": "~3.10.1",
-    "bootstrap-sass": "~3.3.6"
+    "bootstrap-sass": "~3.3.6",
+    "praece-ng-util": "git@github.com:praece/ng-util.git#master"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.0"

@@ -5,7 +5,8 @@ angular.module('envelopes', [
   'ui.bootstrap',
   'js-data',
   'env.envelopes',
-  'pr.auth'
+  'pr.auth',
+  'pr.util'
 ])
 .config(
 function ($urlRouterProvider, DSProvider, authProvider) {

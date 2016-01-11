@@ -7,13 +7,13 @@
     <span class="name">{{::envelope.name}}</span>
     <span class="goal">{{::envelope.goal || 0 | currency}}</span>
     <span class="current-amount">{{::envelope.currentAmount || 0 | currency}}</span>
-    <span class="glyphicon glyphicon-pencil" ng-click="envelopesCtrl.envelope.editing = true"></span>
+    <span class="glyphicon glyphicon-pencil" ng-click="envelopesCtrl.envelope.editing = true" pr-stop-propagation></span>
   </div>
       
   <span class="envelope" ng-click="envelopesCtrl.addEnvelope()" ng-if="!envelopesCtrl.addingEnvelope">
     Add an Envelope
   </span>
-  <form ng-if="envelopesCtrl.addingEnvelope" novalidate ng-submit="envelopesCtrl.saveEnvelope()" class="envelope">
+  <form ng-if="envelopesCtrl.addingEnvelope" novalidate ng-submit="envelopesCtrl.saveEnvelope()" class="add-envelope-form">
     <input type="text" ng-model="envelopesCtrl.newEnvelope.name">
     <button class="add-item-button" ng-if="envelopesCtrl.addingEnvelope">Save</button>
     <button class="cancel-button" type="button" ng-click="envelopesCtrl.addingEnvelope = false" ng-if="envelopesCtrl.addingEnvelope"><span class="glyphicon glyphicon-remove"></span></button>
