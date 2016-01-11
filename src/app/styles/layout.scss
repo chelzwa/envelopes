@@ -18,6 +18,7 @@
     font-size: 18px;
     font-weight: 600;
     color: #fff;
+    line-height: 0;
   }
 
   .goal {
@@ -30,5 +31,34 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
+  }
+
+  .glyphicon-pencil {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    font-size: 12px;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    text-align: right;
+
+    // Only display on hover
+    display: none;
+  }
+}
+
+.envelope:hover {
+  background-color: #6BBBAC;
+
+  .glyphicon-pencil {
+    display: block;
+    background-color: #6BBBAC;
+    opacity: 0.8;
+  }
+
+  .glyphicon-pencil:hover {
+    background-color: #6BBBAC;
+    opacity: 1;
   }
 }

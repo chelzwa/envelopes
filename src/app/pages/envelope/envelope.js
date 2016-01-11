@@ -57,7 +57,6 @@ function ($stateParams, $q, TransactionSrvc, EnvelopeSrvc) {
   };
 
   ctrl.updateEnvelope = function() {
-    console.log('called');
     EnvelopeSrvc.data.update(ctrl.envelope.id, {name: ctrl.envelope.name})
       .then(function(envelope) {
         ctrl.envelope = _.merge(envelope, ctrl.envelope);

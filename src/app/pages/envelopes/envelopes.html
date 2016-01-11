@@ -7,6 +7,7 @@
     <span class="name">{{::envelope.name}}</span>
     <span class="goal">{{::envelope.goal || 0 | currency}}</span>
     <span class="current-amount">{{::envelope.currentAmount || 0 | currency}}</span>
+    <span class="glyphicon glyphicon-pencil" ng-click="envelopesCtrl.envelope.editing = true"></span>
   </div>
       
   <span class="envelope" ng-click="envelopesCtrl.addEnvelope()" ng-if="!envelopesCtrl.addingEnvelope">
